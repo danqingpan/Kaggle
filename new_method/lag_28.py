@@ -5,9 +5,10 @@ import os, warnings
 
 warnings.filterwarnings('ignore')
 
+root = 'kaggle/input/m5-forecasting-accuracy/'
 
 print('Load Data')
-grid_df = pd.read_pickle('kaggle/input/m5-simple-fe/grid_part_1.pkl')
+grid_df = pd.read_pickle(root + 'grid_part_1.pkl')
 grid_df = grid_df[['id','d','store_id','sales']]
 
 
@@ -35,6 +36,6 @@ for day_shift in list(range(1, 1 + 3)) + [7]: # shop mean
 
     
 print('Save lags and rollings')
-grid_df.to_pickle('lags_df'+'.pkl')
+grid_df.to_pickle(root + 'lags_df.pkl')
 
 grid_df.info()
