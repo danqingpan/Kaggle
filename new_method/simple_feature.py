@@ -4,8 +4,6 @@ import os, sys, gc, time, warnings, pickle, psutil, random
 
 from math import ceil
 
-from sklearn.preprocessing import LabelEncoder
-
 warnings.filterwarnings('ignore')
 
 def get_memory_usage():
@@ -61,10 +59,12 @@ MAIN_INDEX = ['id','d']  # We can identify item by these columns
 
 print('Load Main Data')
 
+root = 'kaggle/input/m5-forecasting-accuracy/'
+
 ##############################################################################
-train_df = pd.read_csv('kaggle/input/m5-forecasting-accuracy/sales_train_validation.csv')
-prices_df = pd.read_csv('kaggle/input/m5-forecasting-accuracy/sell_prices.csv')
-calendar_df = pd.read_csv('kaggle/input/m5-forecasting-accuracy/calendar.csv')
+train_df = pd.read_csv(root + 'sales_train_validation.csv')
+prices_df = pd.read_csv(root + 'sell_prices.csv')
+calendar_df = pd.read_csv(root + 'calendar.csv')
 
 
 index_columns = ['id','item_id','dept_id','cat_id','store_id','state_id']
@@ -77,21 +77,20 @@ print('Train rows:', len(train_df), len(grid_df))
 
 # To be able to make predictions
 # we need to add "test set" to our grid
-#add_grid = pd.DataFrame()
+add_grid = pd.DataFrame()
 
-#for i in range(1,29):
-#    temp_df = train_df[index_columns]
-#    temp_df = temp_df.drop_duplicates()
-#    temp_df['d'] = 'd_'+ str(END_TRAIN + i)
-#    temp_df[TARGET] = np.nan
-#    add_grid = pd.concat([add_grid,temp_df])
+for i in range(1,29):
+    temp_df = train_df[index_columns]
+    temp_df = temp_df.drop_duplicates()
+    temp_df['d'] = 'd_'+ str(END_TRAIN + i)
+    temp_df[TARGET] = np.nan
+    add_grid = pd.concat([add_grid,temp_df])
 
-#grid_df = pd.concat([grid_df,add_grid])
-#grid_df = grid_df.reset_index(drop=True)
+grid_df = pd.concat([grid_df,add_grid])
+grid_df = grid_df.reset_index(drop=True)
 
-#del temp_df, add_grid
-#del train_df
-
+del temp_df, add_grid
+del train_df
 
 
 for col in index_columns:
@@ -112,7 +111,7 @@ grid_df['release'] = grid_df['release'] - grid_df['release'].min()
 grid_df['release'] = grid_df['release'].astype(np.int16)
 
 # save 1st file
-grid_df.to_pickle('grid_part_1.pkl')
+grid_df.to_pickle(root + 'grid_part_1.pkl')
 
 print('Size:', grid_df.shape)
 print('Prices')
@@ -144,14 +143,14 @@ grid_df = grid_df[MAIN_INDEX + keep_columns]
 grid_df = reduce_mem_usage(grid_df)
 
 # Safe part 2
-grid_df.to_pickle('grid_part_2.pkl')
+grid_df.to_pickle(root + 'grid_part_2.pkl')
 print('Size:', grid_df.shape)
 
 del prices_df
 
 ##############################################################################
 # handle date
-grid_df = pd.read_pickle('grid_part_1.pkl')
+grid_df = pd.read_pickle(root + 'grid_part_1.pkl')
 grid_df = grid_df[MAIN_INDEX]
 
 # Merge calendar partly
@@ -189,7 +188,7 @@ del grid_df['tm_d']
 print('Save part 3')
 
 # Safe part 3
-grid_df.to_pickle('grid_part_3.pkl')
+grid_df.to_pickle(root + 'grid_part_3.pkl')
 print('Size:', grid_df.shape)
 
 # We don't need calendar_df anymore
