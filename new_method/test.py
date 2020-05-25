@@ -3,6 +3,9 @@ import pandas as pd
 import os, sys, gc, time, warnings, pickle, random
 import lightgbm as lgb
 
+pd.options.display.max_columns = 100
+VER = 1  # Our model version
+SEED = 42  # We want all things
 
 # LIMITS and const
 TARGET = 'sales'  # Our target
@@ -11,35 +14,23 @@ END_TRAIN = 1913  # End day of our train set
 P_HORIZON = 28  # Prediction horizon
 USE_AUX = False  # Use or not pretrained models
 
+root = 'kaggle/input/m5-forecasting-accuracy/'
+days = ['d_'+str(i) for i in range(1,END_TRAIN+1)]
+
 # FEATURES to remove
 ## These features lead to overfit
 ## or values not present in test set
 remove_features = ['id', 'state_id', 'store_id',
                    'date', 'wm_yr_wk', 'd', 'sales', 'sell_price']
 
-# mean_features = ['enc_cat_id_mean', 'enc_cat_id_std',
-#                 'enc_dept_id_mean', 'enc_dept_id_std',
-#                 'enc_item_id_mean', 'enc_item_id_std']
-
-# PATHS for Features
-ORIGINAL = 'kaggle/input/m5-forecasting-accuracy/'
-
-BASE = 'kaggle/input/m5-simple-fe/grid_part_1.pkl'
-PRICE = 'kaggle/input/m5-simple-fe/grid_part_2.pkl'
-CALENDAR = 'kaggle/input/m5-simple-fe/grid_part_3.pkl'
-
-LAGS = 'kaggle/input/m5-simple-fe/lags_df.pkl'
-#MEAN_ENC = 'kaggle/input/m5-simple-fe/mean_encoding_df.pkl'
-
+BASE = root + 'grid_part_1.pkl'
+PRICE = root + 'grid_part_2.pkl'
+CALENDAR = root + 'grid_part_3.pkl'
+LAGS = root + 'lags_df.pkl'
 
 # STORES ids
-STORES_IDS = pd.read_csv(ORIGINAL + 'sales_train_validation.csv')['store_id']
+STORES_IDS = pd.read_csv(root + 'sales_train_validation.csv')['store_id']
 STORES_IDS = list(STORES_IDS.unique())
-
-#os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-pd.options.display.max_columns = 100
-VER = 1  # Our model version
-SEED = 42  # We want all things
 
 def seed_everything(seed = 0):
     random.seed(seed)
@@ -65,28 +56,27 @@ def get_data_by_store(store):
     # Create features list
     features = [col for col in list(df) if col not in remove_features]
     df = df[['id', 'd', 'sales'] + features]
-    
+    df = df[df['d'].isin(days)]
     #df.info()
 
     # Skipping first n rows
-    df = df[df['d'] >= START_TRAIN].reset_index(drop=True)
-    #print(list(df))
+    # df = df[df['d'] >= START_TRAIN].reset_index(drop=True)
+    # print(list(df))
 
     return df, features
-
 
 #for store in STORES_IDS:
 #get_data_by_store(STORES_IDS[0])
 df,features = get_data_by_store(STORES_IDS[0])
 print(df['d'].unique())
-df.info()
+#df.info()
 df.to_csv(STORES_IDS[0]+'.csv')
 
 
+"""
 #data = pd.read_pickle(CALENDAR)
 #print(list(data))
 
-"""
 # Recombine Test set after training
 def get_base_test():
     
@@ -105,8 +95,6 @@ def get_base_test():
 
 if __name__ == "__main__":
     
-    
-
     seed_everything(SEED)  # to be as deterministic
 
     lgb_params = {
