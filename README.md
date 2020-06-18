@@ -40,6 +40,9 @@ Seasons also play a key role for the total sales amount.
 Generally, there are ten shops and each shop have different sales performance.
 
 ## Methods/Models
-Many models can be used to predict sales amount.
-
+Many supervised learning models can be used to predict sales amount.Here are some of them.
+### ensemble trees
+Some ensemble tree models are quite popular in kaggle includes:
+* XGBoost
+This is a model introduced by Tianqi Chen in 2016.
 
