@@ -9,7 +9,7 @@ Another two datasets includes,
 * product prices (weekly)
 * date, holiday and event
 
-The main dataset has the following format:
+* The main dataset has the following format:
 
 product  | day_1  | day_2 | ... | day_1913
  ---- | ----- | ------  | ------ | ------
