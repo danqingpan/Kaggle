@@ -47,8 +47,10 @@ Also in real situations, this types of models are quite useful.
 **XGBoost** is a model introduced by Tianqi Chen, etc in 2016. XGBoost is a model developed based on GBDT.
 Similar with GBDT, XGBoost gives predicition by using the sum in the ensemble trees. 
 The diffenence between XGBoost and GBDT lies in their objectives. XGBoost has some features,  
-a. generates new trees to fit the residual error.
-b. when predicting a observation, XGBoost decide its score by each tree and add them together.  
-c. the final score is the prediction.
+a. It generates new trees to fit the residual error.  
+b. When predicting a observation, XGBoost decide its score by each tree and add them together.  
+c. The final score is the prediction.  
+**Light GBM** is a gradient boost framework that uses tree based learning algorithms. Compared with other tree ensembles, light GBM
+uses leaf-wise growing method. It choose the leaf with max delta loss to grow.
 
 
