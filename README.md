@@ -89,6 +89,7 @@ some features are listed here:
 * date  
 * holiday  
 * event  
+
 It is possible to extract more features. However, it may cause problems.  
 **a**, Too many features may lead to overfitting.  
 **b**, Training dataset might be too large to fit into the memory.  
