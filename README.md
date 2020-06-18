@@ -61,9 +61,17 @@ Since the task is to predict sales for the last 28 days. Intuitively, data close
 
 ### Deep models
 We also have some choices for deep learning models. Deep learning models generally have a better performance when there are a lot of data.  
-* **LSTM** LSTM or RNN are classic choice for time series data. They can 'remember' previous training samples. Based on this property, they are wildly used in natural language processing area. It seems to be natural to use LSTM as a predictor in this case.  
+* **LSTM** or RNN are classic choices for time series data. They can 'remember' previous training samples. Based on this property, they are wildly used in natural language processing area. It seems to be natural to use LSTM as a predictor in this case.  
 ### problem with LSTM
 Some difficulities using LSTM includes:  
 * hard to use outside data. Here outside data refer to non-sales data such as holiday information.  
 * can only be trained for one product.  
 * training is slow because this is a deep model.The training basically requires GPU to accelerate.  
+
+## Model choice
+Considering the computing resources provided by kaggle, it seem better to choose Light GBM model as the predictor.There are several reasons.  
+a. Kaggle provides freely 16GB memory and 8 core CPU for this contest. Since there is no GPU, it will be difficult to use LSTM.  
+b. 16GB is too small for XGBoost in this contest unless we only choose to use partial data for training. It will be possible if we divide dataset into shops (totally 10 shops) and train independent models.  
+c. Even if we can use XGBoost, light GBM is still faster to train.  
+d. Generally, the performance between Light GBM and XGBoost is similar.  
+Based on these reasons, it seems to be better to start the training with light GBM model.
