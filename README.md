@@ -47,9 +47,9 @@ Also in real situations, this types of models are quite useful.
 * **XGBoost** is a model introduced by Tianqi Chen, etc in 2016. XGBoost is a model developed based on GBDT.
 Similar with GBDT, XGBoost gives predicition by using the sum in the ensemble trees. 
 The diffenence between XGBoost and GBDT lies in their objectives. XGBoost has some features,  
-a. It generates new trees to fit the residual error.  
-b. When predicting a observation, XGBoost decide its score by each tree and add them together.  
-c. The final score is the prediction.  
+**a**. It generates new trees to fit the residual error.  
+**b**. When predicting a observation, XGBoost decide its score by each tree and add them together.  
+**c**. The final score is the prediction.  
 * **Light GBM** is a gradient boost framework that uses tree based learning algorithms. Compared with other tree ensembles, light GBM
 uses leaf-wise growing method. It choose the leaf with max delta loss to grow. Light GBM is much faster compared with XGBoost while these two models have similar performance.  
 In this contest, to fit 16 GB memory limit, many contestants choose to use light GBM as main classifier.  
@@ -70,8 +70,8 @@ Some difficulities using LSTM includes:
 
 ## Model choice
 Considering the computing resources provided by kaggle, it seem better to choose Light GBM model as the predictor.There are several reasons.  
-a. Kaggle provides freely 16GB memory and 8 core CPU for this contest. Since there is no GPU, it will be difficult to use LSTM.  
-b. 16GB is too small for XGBoost in this contest unless we only choose to use partial data for training. It will be possible if we divide dataset into shops (totally 10 shops) and train independent models.  
-c. Even if we can use XGBoost, light GBM is still faster to train.  
-d. Generally, the performance between Light GBM and XGBoost is similar.  
+**a**. Kaggle provides freely 16GB memory and 8 core CPU for this contest. Since there is no GPU, it will be difficult to use LSTM.  
+**b**. 16GB is too small for XGBoost in this contest unless we only choose to use partial data for training. It will be possible if we divide dataset into shops (totally 10 shops) and train independent models.  
+**c**. Even if we can use XGBoost, light GBM is still faster to train.  
+**d**. Generally, the performance between Light GBM and XGBoost is similar.  
 Based on these reasons, it seems to be better to start the training with light GBM model.
