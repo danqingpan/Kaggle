@@ -77,4 +77,8 @@ Considering the computing resources provided by kaggle, it seem better to choose
 Based on these reasons, it seems to be better to start the training with light GBM model.  
 
 ## Feature engineering
+As described before, we can use time lag data as features. We use the model to fit the sales of current day.  
+* input: time lag (sales for previous days), holiday, category, date , etc
+* output: sales of the day
+
 
