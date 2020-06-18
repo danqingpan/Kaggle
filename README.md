@@ -51,6 +51,7 @@ a. It generates new trees to fit the residual error.
 b. When predicting a observation, XGBoost decide its score by each tree and add them together.  
 c. The final score is the prediction.  
 **Light GBM** is a gradient boost framework that uses tree based learning algorithms. Compared with other tree ensembles, light GBM
-uses leaf-wise growing method. It choose the leaf with max delta loss to grow.
+uses leaf-wise growing method. It choose the leaf with max delta loss to grow. Light GBM is much faster compared with XGBoost while these two models have similar performance.  
+In this contest, to fit 16 GB memory limit, many contestants choose to use light GBM as main classifier.
 
 
