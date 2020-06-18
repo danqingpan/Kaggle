@@ -33,5 +33,5 @@ However, collecting date faces difficulties. For example, there might exists unk
 Also, the precise positions of these Walmart shops are not provided which makes it difficult to know the correct local weather.
 
 ## Data Analysis
-
+![aggregate](https://github.com/danqingpan/Kaggle/blob/master/plots/aggregate_sales.png "aggregate sales")  
 
