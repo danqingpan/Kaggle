@@ -68,10 +68,13 @@ Some difficulities using LSTM includes:
 * can only be trained for one product.  
 * training is slow because this is a deep model.The training basically requires GPU to accelerate.  
 
-## Model choice
+## Choosing a model
 Considering the computing resources provided by kaggle, it seem better to choose Light GBM model as the predictor.There are several reasons.  
 **a**. Kaggle provides freely 16GB memory and 8 core CPU for this contest. Since there is no GPU, it will be difficult to use LSTM.  
 **b**. 16GB is too small for XGBoost in this contest unless we only choose to use partial data for training. It will be possible if we divide dataset into shops (totally 10 shops) and train independent models.  
 **c**. Even if we can use XGBoost, light GBM is still faster to train.  
 **d**. Generally, the performance between Light GBM and XGBoost is similar.  
-Based on these reasons, it seems to be better to start the training with light GBM model.
+Based on these reasons, it seems to be better to start the training with light GBM model.  
+
+## Feature engineering
+
