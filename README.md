@@ -55,7 +55,15 @@ uses leaf-wise growing method. It choose the leaf with max delta loss to grow. L
 In this contest, to fit 16 GB memory limit, many contestants choose to use light GBM as main classifier.  
 * other typical tree ensemble models includes **random forest**, **ADAboost** etc.  
 
+### problem with tree ensembles
 It might seems to be unnatural to use a tree ensemble here since daily sales is time series data. A basic solution here is to use time delay data to predict current sales. E.g. we can use sales 7 days ago to predict the sales of the current day. Intuitively, today's sales amount might be similar to the sales amount 7 days ago. We can further use other time delay such as 1 day, 2 days , 14 days as features.  
 Since the task is to predict sales for the last 28 days. Intuitively, data close to day 1913 will be more useful since it reflects the current trend. To emphasize this property, we can put different weight on training data and make close 'close' data more important. Also, we can see that seasons have an large influence on the sales, data in the same season should also be emphasized. 
 
-
+### Deep models
+We also have some choices for deep learning models. Deep learning models generally have a better performance when there are a lot of data.  
+* **LSTM** LSTM or RNN are classic choice for time series data. They can 'remember' previous training samples. Based on this property, they are wildly used in natural language processing area. It seems to be natural to use LSTM as a predictor in this case.  
+### problem with LSTM
+Some difficulities using LSTM includes:  
+* hard to use outside data. Here outside data refer to non-sales data such as holiday information.  
+* can only be trained for one product.  
+* training is slow because this is a deep model.The training basically requires GPU to accelerate.  
