@@ -52,6 +52,9 @@ b. When predicting a observation, XGBoost decide its score by each tree and add 
 c. The final score is the prediction.  
 * **Light GBM** is a gradient boost framework that uses tree based learning algorithms. Compared with other tree ensembles, light GBM
 uses leaf-wise growing method. It choose the leaf with max delta loss to grow. Light GBM is much faster compared with XGBoost while these two models have similar performance.  
-In this contest, to fit 16 GB memory limit, many contestants choose to use light GBM as main classifier.
+In this contest, to fit 16 GB memory limit, many contestants choose to use light GBM as main classifier.  
+* other typical tree ensemble models includes **random forest**, **ADAboost** etc.
+It might seems to be unnatural to use a tree ensemble here since daily sales is time series data. A basic solution here is to use time delay data to predict current sales. E.g. we can use sales 7 days ago to predict the sales of the current day. Intuitively, today's sales amount might be similar to the sales amount 7 days ago. We can further use other time delay such as 1 day, 2 days , 14 days as features.  
+Since the task is to predict sales for the last 28 days. Intuitively, data close to day 1913 will be more useful since it reflects the current trend. To emphasize this property, we can put different weight on training data and make close 'close' data more important. Also, we can see that seasons have an large influence on the sales, data in the same season should also be emphasized. 
 
 
