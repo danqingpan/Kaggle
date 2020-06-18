@@ -43,6 +43,11 @@ Generally, there are ten shops and each shop have different sales performance.
 Many supervised learning models can be used to predict sales amount.Here are some of them.
 ### ensemble trees
 Some ensemble tree models are quite popular in kaggle includes:
-* XGBoost
-This is a model introduced by Tianqi Chen in 2016.
+**XGBoost** is a model introduced by Tianqi Chen, etc in 2016. XGBoost is a model developed based on GBDT.
+Similar with GBDT, XGBoost gives predicition by using the sum in the ensemble trees. 
+The diffenence between XGBoost and GBDT lies in their objectives. XGBoost has some features,
+a. generates new trees to fit the residual error.
+b. when predicting a observation, XGBoost decide its score by each tree and add them together.
+c. the final score is the prediction.
+
 
