@@ -39,8 +39,7 @@ Generally, the total sales rise with time. However, at the final stage, it seems
 Seasons also play a key role for the total sales amount.
 Generally, there are ten shops and each shop have different sales performance.
 
-## Methods
-
-
+## Methods/Models
+Many models can be used to predict sales amount.
 
 
