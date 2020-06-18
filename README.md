@@ -35,7 +35,12 @@ Also, the precise positions of these Walmart shops are not provided which makes 
 ## Data Analysis
 ![aggregate](https://github.com/danqingpan/Kaggle/blob/master/plots/aggregate_sales.png "aggregate sales")  
 This figure shows the trend for total product sales.
-Generally, the total sales rise with time. However, at the final stage, it seems that 
-Also seasons play an important role for the total sales amount.
+Generally, the total sales rise with time. However, at the final stage, it seems that at the final stage, the rising speed accelerated.
+Seasons also play a key role for the total sales amount.
+Generally, there are ten shops and each shop have different sales performance.
+
+## Methods
+
+
 
 
