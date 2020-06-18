@@ -25,7 +25,7 @@ hobby_2  | 4      | 2     | 8   | 7
 
 Products can be categorized into food, household and hobby. Our task is to predict sales from day 1913 to 1941.
 
-### augment dataset
+### augmented datasets
 In this contest, it is free to prepare outside dataset by contestants themselves. 
 For example, contestants can use weather and temperature data. Intuitively, these factors have influences on daily sales.
 Or share price may also have an influence on Walmart's sales.
