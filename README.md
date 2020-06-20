@@ -96,4 +96,6 @@ It is possible to extract more features. However, it may cause problems.
 **b**, Training dataset might be too large to fit into the memory.  
 
 ## Training
-
+There are over 50 million observations. If we use data that is close to the end day, this amount would shrink. 
+We want to predict the last 28 days and the close data should be more useful, we can set the start time for training larger.
+E.g. we can set the first day as 800 or even larger.
