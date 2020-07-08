@@ -3,6 +3,7 @@
 This is a kaggle contest for predicting sales of Walmart, the world's largest company.
 Contestants are given Walmart sales data for previous 1913 days for 3049 products in 10 shops, 
 and they are required to predict the daily sales in the next 28 days for each product.
+![aggregate](https://github.com/danqingpan/Kaggle/blob/master/plots/fig1.png "prediction task")  
 ## Dataset
 There are three datasets used for sales prediction.The main dataset includes the daily sales records for all products.
 Another two datasets includes,
