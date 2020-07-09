@@ -3,9 +3,9 @@
 This is a kaggle contest for predicting sales of Walmart, the world's largest company.
 Contestants are given Walmart sales data for previous 1913 days for 3049 products in 10 shops, 
 and they are required to predict the daily sales in the next 28 days for each product.
-<img src = https://github.com/danqingpan/Kaggle/blob/master/M5-sales-prediction/plots/fig1.png width = '500' alt = "prediction task for one product"  />
+<img src = https://github.com/danqingpan/Kaggle/blob/master/M5-sales-prediction/plots/fig1.png width = '800' alt = "prediction task for one product"  />
 Totally, we have 3049 * 10 products to predict.
-![aggregate](https://github.com/danqingpan/Kaggle/blob/master/M5-sales-prediction/plots/fig3.png "prediction task for all products")  
+<img src = https://github.com/danqingpan/Kaggle/blob/master/M5-sales-prediction/plots/fig3.png width = '800' alt ="prediction task for all products" />  
 
 ## Dataset
 There are three datasets used for sales prediction.The main dataset includes the daily sales records for all products.
@@ -37,7 +37,7 @@ However, collecting date faces difficulties. For example, there might exists unk
 Also, the precise positions of these Walmart shops are not provided which makes it difficult to know the correct local weather.
 
 ## Data Analysis
-![aggregate](https://github.com/danqingpan/Kaggle/blob/master/M5-sales-prediction/plots/aggregate_sales.png "aggregate sales")  
+<img src = https://github.com/danqingpan/Kaggle/blob/master/M5-sales-prediction/plots/aggregate_sales.png width = '600' alt = "aggregate sales" />
 This figure shows the trend for total product sales.
 Generally, the total sales rise with time. However, at the final stage, it seems that at the final stage, the rising speed accelerated.
 Seasons also play a key role for the total sales amount.
