@@ -1,4 +1,4 @@
-# Classifer tweet message as diaster or non-diaster related(kaggle contest)
+# Classifer tweet messages (kaggle contest)
 ## Introduction
 When people saw a diaster, they may push a tweet message immediately. If we can verify these message, we may find a diaster as fast as possible.
 
