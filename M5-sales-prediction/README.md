@@ -3,7 +3,7 @@
 This is a kaggle contest for predicting sales of Walmart, the world's largest company.
 Contestants are given Walmart sales data for previous 1913 days for 3049 products in 10 shops, 
 and they are required to predict the daily sales in the next 28 days for each product.
-<img src = https://github.com/danqingpan/Kaggle/blob/master/M5-sales-prediction/plots/fig1.png width = '800' alt = "prediction task for one product"  />
+<img src = https://github.com/danqingpan/Kaggle/blob/master/M5-sales-prediction/plots/fig1.png width = '800' alt = "prediction task for one product"  />  
 Totally, we have 3049 * 10 products to predict.  
 <img src = https://github.com/danqingpan/Kaggle/blob/master/M5-sales-prediction/plots/fig3.png width = '800' alt ="prediction task for all products" />  
 
