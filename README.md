@@ -2,7 +2,7 @@
 ## M5 - sales prediction
 This contest predicts sales for Walmart which is the largest supermarket in the world. Salse for about previous 5 years are provided and contesters are required to predict sales for next 28 days based on the data.
 
-## NLP with diaster tweeters
+## Diaster-tweet (NLP)
 This contest asked participants to classify whether a tweet message is associated with real diaster. Such a model can help us to locate a disater quickly.
 
 ## Google landmark retrieval 2020
